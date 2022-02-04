@@ -1,38 +1,69 @@
-.App {
-  text-align: center;
+body{
+  background-color:rgb(197, 228, 231);
+  font-family: 'Space Mono';
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
+  height: 60vh;
+  border: dotted;
+  background-color:rgb(255, 255, 255);
+  margin: 5% 10% 10% 10%;
   display: flex;
-  flex-direction: column;
+  
+}
+.btns-group{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 5%;
+ 
+}
+.choice-tips{
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 20%;
+  margin: 2% 2% 1% 2%;
+  width: 50%;
+}
+
+fieldset{
+  border: none;
+}
+input{
+  background-color: rgb(244, 250, 250);
+  border: none;
+  font-size: 24px;
+}
+.btn-inactive{
+  background-color: rgb(0, 73, 77);
+  color:rgb(255, 255, 255);
+  font-size: 24px;
+  font-family: 'Space Mono';
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content:center;
+  width: 10vw;
+  border-radius: 10px;
 }
-
-.App-link {
-  color: #61dafb;
+.btn-active{
+  background-color: rgb(121, 9, 9);
+  color: black;
+  font-size: 24px;
+  font-family: 'Space Mono';
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  width: 10vw;
+  border-radius: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.View-Results{
+  background-color: hsl(183, 100%, 15%);
+  width: 50%;
+}
+.ViewResultsTips{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@font-face {
+  font-family: 'Space Mono';
+  src: url(Font-Family/SpaceMono-Regular.ttf);
 }
