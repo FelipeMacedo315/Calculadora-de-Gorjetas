@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import BtnsPorcentage from "./componentes/btnsPorcentage";
 import Label from "./componentes/label";
-import ViewResults from "./componentes/viewResults";
 import ViewResultsTips from "./componentes/viewResultTips";
+import MeuContexto from "./componentes/contexto";
 
 function App() {
   const [porcentageBtns, setPorcentageBtn] = useState([
@@ -14,26 +14,85 @@ function App() {
     50,
     "custom",
   ]);
+  const [valueOfEat, setValueOfEat] = useState(0);
+  const [numberOfPeoples, setNumberOfPeoples] = useState(0);
+  const [porcentageSelected, setPorcentageSelected] = useState(0);
+  const [tipAmount, setTipAmount] = useState(0);
+  const [tipForPeople, setTipForPeople] = useState(0);
+  const [btnStatus, setBtnstatus] = useState({
+    botão1: "btn-inactive",
+    disableBtn1: false,
+    botão2: "btn-inactive",
+    disableBtn2: false,
+    botão3: "btn-inactive",
+    disableBtn3: false,
+    botão4: "btn-inactive",
+    disableBtn4: false,
+    botão5: "btn-inactive",
+    disableBtn5: false,
+    botão6: "btn-inactive",
+    disableBtn6: false,
+  });
+  
+  useEffect(()=>{
+    let checkedBtnActive = Object.values(btnStatus).filter((item) => {
+      return item === true;
+    });
+  
+    if (checkedBtnActive.length === 1 && valueOfEat > 0 && numberOfPeoples >= 1) {
+      setTipAmount((valueOfEat * porcentageSelected) / 100);
+      setTipForPeople((tipAmount/numberOfPeoples).toFixed(2))
+    }
+  })
   return (
     <div className="App">
-      <div className="choice-tips">
-        <Label name="Bill" />
-        <fieldset>
-          <legend>Select tip %</legend>
-          <div className="btns-group">
-            <BtnsPorcentage optionsPorcentage={porcentageBtns[0]} />
-            <BtnsPorcentage optionsPorcentage={porcentageBtns[1]} />
-            <BtnsPorcentage optionsPorcentage={porcentageBtns[2]} />
-            <BtnsPorcentage optionsPorcentage={porcentageBtns[3]} />
-            <BtnsPorcentage optionsPorcentage={porcentageBtns[4]} />
-            <BtnsPorcentage optionsPorcentage={porcentageBtns[5]} />
-          </div>
-        </fieldset>
-        <Label name="Number of people" />
-      </div>
-      <ViewResults>
-        <ViewResultsTips text="Tip Amount" price='10.00'/>
-      </ViewResults>
+      <MeuContexto.Provider
+        value={{
+          porcentageSelected,
+          setPorcentageSelected,
+          btnStatus,
+          setBtnstatus,
+        }}
+      >
+        <div className="choice-tips">
+          <Label
+            name="Bill"
+            input={
+              <input
+                onChange={(e) => {
+                  setValueOfEat(e.target.value);
+                }}
+                type={"number"}
+                value={valueOfEat}
+              />
+            }
+          />
+          <fieldset>
+            <legend>Select tip %</legend>
+            <div className="btns-group">
+              <BtnsPorcentage optionsPorcentage={porcentageBtns} />
+            </div>
+          </fieldset>
+          <Label
+            name="Number of people"
+            input={
+              <input
+                onChange={(f) => {
+                  setNumberOfPeoples(f.target.value);
+                }}
+                type={"number"}
+                value={numberOfPeoples}
+              />
+            }
+          />
+        </div>
+        <div className="View-Results">
+          <ViewResultsTips text="Tip Amount" price={tipForPeople} />
+          <ViewResultsTips text="Total" price={tipAmount} />
+
+          <button onClick={() => {}}>Reset</button>
+        </div>
+      </MeuContexto.Provider>
     </div>
   );
 }

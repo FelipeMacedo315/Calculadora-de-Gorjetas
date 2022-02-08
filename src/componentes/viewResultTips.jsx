@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 function ViewResultsTips(props) {
+  useEffect(() => {
+   
+  },[props.price]);
   return (
     <div className=" ViewResultsTips">
-      {props.text} <br /> /person <h1>{props.price}</h1>
+      <h3>
+        {props.text} <p>/person</p>
+      </h3>
+      <h1>{props.price}</h1>
     </div>
   );
 }

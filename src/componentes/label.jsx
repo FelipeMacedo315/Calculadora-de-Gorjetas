@@ -3,8 +3,8 @@ function Label(props) {
   return (
     <fieldset>
       <legend>{props.name}</legend>
-      <input type='text'/>
+      {props.input}
     </fieldset>
   );
 }
-export default Label
+export default Label;
