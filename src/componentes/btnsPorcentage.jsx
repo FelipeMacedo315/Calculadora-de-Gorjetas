@@ -1,9 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
+
 import MeuContexto from "./contexto";
 function BtnsPorcentage(props) {
-  const { btnStatus, setBtnStatus, porcentageSelected, setPorcentageSelected } =
-    useContext(MeuContexto);
-
+  const {
+    btnStatus,
+    setBtnStatus,
+    valueOfEat,
+    porcentageSelected,
+    setPorcentageSelected,
+    porcentageCustom,
+    setPorcentageCustom,
+  } = useContext(MeuContexto);
+   
   return (
     <React.Fragment>
       <button
@@ -14,7 +22,6 @@ function BtnsPorcentage(props) {
           btnStatus.disableBtn3 = false;
           btnStatus.disableBtn4 = false;
           btnStatus.disableBtn5 = false;
-          btnStatus.disableBtn6 = false;
           setPorcentageSelected(props.optionsPorcentage[0]);
           btnStatus.botão1 = "btn-active";
           btnStatus.botão2 = "btn-inactive";
@@ -37,7 +44,7 @@ function BtnsPorcentage(props) {
           btnStatus.disableBtn3 = false;
           btnStatus.disableBtn4 = false;
           btnStatus.disableBtn5 = false;
-          btnStatus.disableBtn6 = false;
+
           btnStatus.botão1 = "btn-inactive";
           btnStatus.botão2 = "btn-active";
           btnStatus.botão3 = "btn-inactive";
@@ -59,7 +66,7 @@ function BtnsPorcentage(props) {
           btnStatus.disableBtn3 = true;
           btnStatus.disableBtn4 = false;
           btnStatus.disableBtn5 = false;
-          btnStatus.disableBtn6 = false;
+
           btnStatus.botão1 = "btn-inactive";
           btnStatus.botão2 = "btn-inactive";
           btnStatus.botão3 = "btn-active";
@@ -81,7 +88,7 @@ function BtnsPorcentage(props) {
           btnStatus.disableBtn3 = false;
           btnStatus.disableBtn4 = true;
           btnStatus.disableBtn5 = false;
-          btnStatus.disableBtn6 = false;
+
           btnStatus.botão1 = "btn-inactive";
           btnStatus.botão2 = "btn-inactive";
           btnStatus.botão3 = "btn-inactive";
@@ -103,7 +110,7 @@ function BtnsPorcentage(props) {
           btnStatus.disableBtn3 = false;
           btnStatus.disableBtn4 = false;
           btnStatus.disableBtn5 = true;
-          btnStatus.disableBtn6 = false;
+
           btnStatus.botão1 = "btn-inactive";
           btnStatus.botão2 = "btn-inactive";
           btnStatus.botão3 = "btn-inactive";
@@ -116,16 +123,20 @@ function BtnsPorcentage(props) {
         {props.optionsPorcentage[4]}%
       </button>
 
-      <button
-        disabled={btnStatus.disableBtn6}
+      <input
+        placeholder={porcentageCustom}
+        type={"number"}
+        onChange={(e) => {
+          setPorcentageCustom(e.target.value);
+        }}
         onClick={() => {
-          setPorcentageSelected(props.optionsPorcentage[5]);
+          setPorcentageSelected(porcentageCustom);
           btnStatus.disableBtn1 = false;
           btnStatus.disableBtn2 = false;
           btnStatus.disableBtn3 = false;
           btnStatus.disableBtn4 = false;
           btnStatus.disableBtn5 = false;
-          btnStatus.disableBtn6 = true;
+
           btnStatus.botão1 = "btn-inactive";
           btnStatus.botão2 = "btn-inactive";
           btnStatus.botão3 = "btn-inactive";
@@ -133,10 +144,9 @@ function BtnsPorcentage(props) {
           btnStatus.botão5 = "btn-inactive";
           btnStatus.botão6 = "btn-active";
         }}
+        value={porcentageCustom}
         className={btnStatus.botão6}
-      >
-        {props.optionsPorcentage[5]}%
-      </button>
+      />
     </React.Fragment>
   );
 }

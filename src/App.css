@@ -1,83 +1,98 @@
-body{
-  background-color:rgb(197, 228, 231);
-  font-family: 'Space Mono';
+body {
+  background-color: rgb(197, 228, 231);
+  font-family: "Space Mono";
 }
-.App{
+.App {
   height: 60vh;
-  background-color:rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
   margin: 5% 10% 10% 10%;
   display: flex;
-  
 }
-.btns-group{
+.btns-group {
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 5%;
- 
 }
-.choice-tips{
- display: flex;
- flex-direction: column;
- align-items: flex-start;
- justify-content: space-evenly;
- margin-left: 2%;
+.choice-tips {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  margin-left: 2%;
   width: 50%;
 }
-fieldset{
+fieldset {
   border: none;
 }
-input{
+input[id='BillTotal'] {
   background-color: rgb(244, 250, 250);
   border: none;
   font-size: 24px;
-}input:focus{
+  text-align: center;
+  background-image: url("icons/icon-dollar.svg");
+  background-repeat: no-repeat;
+  background-position: 2%;
+
+}
+input[id='NumberOfPeople'] {
+  background-color: rgb(244, 250, 250);
+  border: none;
+  font-size: 24px;
+  text-align: center;
+  background-image: url('icons/icon-person.svg');
+  background-repeat: no-repeat;
+  background-position: 2%;
+
+}
+input:focus {
   outline-color: hsl(172, 67%, 45%);
 }
-.btn-inactive{
+.btn-inactive {
   background-color: rgb(0, 73, 77);
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   font-size: 24px;
-  font-family: 'Space Mono';
+  font-family: "Space Mono";
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   width: 10vw;
   border-radius: 10px;
 }
-.btn-active{
+.btn-active {
   background-color: hsl(172, 67%, 45%);
-  color:rgb(0, 73, 77);
+  color: rgb(0, 73, 77);
   font-size: 24px;
-  font-family: 'Space Mono';
+  font-family: "Space Mono";
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   width: 10vw;
   border-radius: 10px;
 }
-.View-Results{
+.View-Results {
   background-color: hsl(183, 100%, 15%);
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
- justify-content: space-evenly;
+  justify-content: space-evenly;
 }
-.View-Results  h3{
+.View-Results h3 {
   font-size: larger;
-  color: rgb(244, 250, 250) ;
+  color: rgb(244, 250, 250);
 }
-.View-Results p{
+.View-Results p {
   color: gray;
   font-size: small;
-}.View-Results button{
-  background-color: hsl(172, 67%, 45%);;
+}
+.View-Results button {
+  background-color: hsl(172, 67%, 45%);
   font-family: "Space Mono";
   width: 50%;
   font-size: 24px;
   border-radius: 10px;
 }
-.ViewResultsTips{
+.ViewResultsTips {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,6 +100,6 @@ input{
 }
 
 @font-face {
-  font-family: 'Space Mono';
+  font-family: "Space Mono";
   src: url(Font-Family/SpaceMono-Regular.ttf);
 }
