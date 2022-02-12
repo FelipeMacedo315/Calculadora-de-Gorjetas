@@ -10,8 +10,8 @@ function App() {
   const [valueOfEat, setValueOfEat] = useState(0);
   const [numberOfPeoples, setNumberOfPeoples] = useState(0);
   const [porcentageSelected, setPorcentageSelected] = useState(0);
-  const [tipAmount, setTipAmount] = useState(0);
-  const [tipForPeople, setTipForPeople] = useState(0);
+  const [tipAmount, setTipAmount] = useState((0).toFixed(2));
+  const [tipForPeople, setTipForPeople] = useState((0).toFixed(2));
   const [porcentageCustom, setPorcentageCustom] = useState("Custom");
   const [btnStatus, setBtnstatus] = useState({
     botão1: "btn-inactive",
@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
     if (valueOfEat > 0 && numberOfPeoples >= 1) {
 
-        setTipAmount((valueOfEat * porcentageSelected) / 100);
+        setTipAmount(((valueOfEat * porcentageSelected) / 100).toFixed(2));
       setTipForPeople((tipAmount / numberOfPeoples).toFixed(2));
       }
     
@@ -63,6 +63,7 @@ function App() {
                 }}
                 type={"number"}
                 value={valueOfEat}
+                min='0'
               />
             }
           />
@@ -80,6 +81,7 @@ function App() {
                   setNumberOfPeoples(f.target.value);
                 }}
                 type={"number"}
+                min='0'
                 value={numberOfPeoples}
                 id="NumberOfPeople"
               />
@@ -90,13 +92,13 @@ function App() {
           <ViewResultsTips text="Tip Amount" price={tipForPeople} />
           <ViewResultsTips text="Total" price={tipAmount} />
 
-          <button
+          <button id="btn-reset"
             onClick={() => {
-              setTipAmount(0);
-              setTipForPeople(0);
+              setTipAmount((0).toFixed(2));
+              setTipForPeople((0).toFixed(2));
               setNumberOfPeoples(0);
               setValueOfEat(0);
-              setPorcentageCustom("Custom %");
+              setPorcentageCustom("Custom");
               btnStatus.botão1 = "btn-inactive";
               btnStatus.botão2 = "btn-inactive";
               btnStatus.botão2 = "btn-inactive";

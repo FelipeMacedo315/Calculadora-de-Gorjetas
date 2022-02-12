@@ -1,12 +1,18 @@
+html {
+  font-size: 24px;
+  color: gray;
+}
 body {
   background-color: rgb(197, 228, 231);
   font-family: "Space Mono";
+  box-sizing: border-box;
 }
 .App {
   height: 60vh;
   background-color: rgb(255, 255, 255);
   margin: 5% 10% 10% 10%;
   display: flex;
+  border-radius: 25px;
 }
 .btns-group {
   display: grid;
@@ -20,86 +26,154 @@ body {
   justify-content: space-evenly;
   margin-left: 2%;
   width: 50%;
+ 
 }
 fieldset {
   border: none;
 }
-input[id='BillTotal'] {
+legend {
+  font-size: 0.7rem;
+}
+input[id="BillTotal"] {
   background-color: rgb(244, 250, 250);
   border: none;
-  font-size: 24px;
+  font-size: 1rem;
   text-align: center;
   background-image: url("icons/icon-dollar.svg");
   background-repeat: no-repeat;
   background-position: 2%;
-
+  font-family: "Space Mono";
 }
-input[id='NumberOfPeople'] {
+input[id="NumberOfPeople"] {
   background-color: rgb(244, 250, 250);
   border: none;
-  font-size: 24px;
+  font-size: 1rem;
   text-align: center;
-  background-image: url('icons/icon-person.svg');
+  background-image: url("icons/icon-person.svg");
   background-repeat: no-repeat;
   background-position: 2%;
-
+  font-family: "Space Mono";
 }
 input:focus {
   outline-color: hsl(172, 67%, 45%);
+  font-size: 1rem;
+  font-family: "Space Mono";
+}input::placeholder{
+  font-size: 0.8rem;
 }
 .btn-inactive {
   background-color: rgb(0, 73, 77);
-  color: rgb(255, 255, 255);
-  font-size: 24px;
+  color: rgb(244, 250, 250);
+  font-size: 1rem;
   font-family: "Space Mono";
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 10vw;
+  width: 8vw ;
   border-radius: 10px;
 }
 .btn-active {
   background-color: hsl(172, 67%, 45%);
   color: rgb(0, 73, 77);
-  font-size: 24px;
+  font-size: 1rem;
   font-family: "Space Mono";
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 10vw;
+  text-align: center;
+  width:8vw  ;
   border-radius: 10px;
 }
+
 .View-Results {
   background-color: hsl(183, 100%, 15%);
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  border-radius: 25px;
+  margin: 2% 2% 2% 8%;
 }
 .View-Results h3 {
-  font-size: larger;
+  font-size: 0.9rem;
   color: rgb(244, 250, 250);
 }
 .View-Results p {
   color: gray;
-  font-size: small;
+  margin: 0;
+  padding: 0%;
+  font-size: 0.7rem;
 }
 .View-Results button {
   background-color: hsl(172, 67%, 45%);
   font-family: "Space Mono";
-  width: 50%;
-  font-size: 24px;
+  width: 80%;
+  font-size: 1rem;
   border-radius: 10px;
 }
 .ViewResultsTips {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-around;
   width: 80%;
+}
+.ViewResultsTips h1::first-letter {
+  font-size: 1.5rem;
+  color: hsl(172, 67%, 45%);
+}
+.ViewResultsTips h1 {
+  font-size: 2rem;
+  color: hsl(172, 67%, 45%);
+}
+
+.line-results {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
 }
 
 @font-face {
   font-family: "Space Mono";
-  src: url(Font-Family/SpaceMono-Regular.ttf);
+  src: url(Font-Family/SpaceMono-Bold.ttf);
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+
+  .App {
+    height: auto;
+    width: 100%;
+    margin: 20% 0% 0% 0%;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+  }
+  .choice-tips {
+    width: 100%;
+    align-items: center;
+    gap: 5vh;
+    padding-top: 5%;
+    height: 65vh;
+  }
+  .View-Results {
+    width: 100%;
+    align-items: center;
+    gap: 2vh;
+    padding-top: 5%;
+    padding-bottom: 5vh;
+    height: 35vh;
+    margin: 0;
+  }
+
+  .btns-group {
+    grid-template-columns: auto auto;
+    gap: 10%;
+  }
+  .btn-active,
+  .btn-inactive {
+    width: 30vw;
+  }
 }

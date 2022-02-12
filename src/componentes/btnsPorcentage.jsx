@@ -123,11 +123,11 @@ function BtnsPorcentage(props) {
         {props.optionsPorcentage[4]}%
       </button>
 
-      <input
+      <input 
         placeholder={porcentageCustom}
         type={"number"}
         onChange={(e) => {
-          setPorcentageCustom(e.target.value);
+          setPorcentageCustom(e.target.value );
         }}
         onClick={() => {
           setPorcentageSelected(porcentageCustom);
