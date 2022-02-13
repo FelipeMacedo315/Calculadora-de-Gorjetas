@@ -30,6 +30,7 @@ body {
 }
 fieldset {
   border: none;
+ 
 }
 legend {
   font-size: 0.7rem;
@@ -43,6 +44,7 @@ input[id="BillTotal"] {
   background-repeat: no-repeat;
   background-position: 2%;
   font-family: "Space Mono";
+
 }
 input[id="NumberOfPeople"] {
   background-color: rgb(244, 250, 250);
@@ -53,11 +55,13 @@ input[id="NumberOfPeople"] {
   background-repeat: no-repeat;
   background-position: 2%;
   font-family: "Space Mono";
+  
 }
 input:focus {
   outline-color: hsl(172, 67%, 45%);
   font-size: 1rem;
   font-family: "Space Mono";
+  
 }input::placeholder{
   font-size: 0.8rem;
 }
