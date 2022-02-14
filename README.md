@@ -1,6 +1,7 @@
 <h1 align="center">Calculadora de Gorjetas</h1>
 <p align="center">Calcule a quantia ideal de gorjetas!</p>
 <p align="center"> Aplicação para trazer praticidade na hora de dar gorjetas.</p>
+<h3> <i> Feito com : <i></h3>
   <img src='https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB'/>
   <img src='https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black'/>
  
@@ -12,6 +13,9 @@
 
 <h3><i>Veja:</i></h3> 
  <img src='C:\Users\knjnnnk\gorjetacalc\2022-02-12-20-28-03_Trim-_2_.gif'/>
+ <img src='imagensReadme\gorjetas.png'>
+ <img src='imagensReadme\gorjetas2.png'>
+ <img src='imagensReadme\gorjetas3.png'>
   
  <h4 align="center"> 
 	🚧  Calculadora de Gorjetas 🚀 Projeto Finalizado...  🚧

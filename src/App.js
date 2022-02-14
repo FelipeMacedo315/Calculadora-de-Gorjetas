@@ -8,11 +8,11 @@ import MeuContexto from "./componentes/contexto";
 function App() {
   const [porcentageBtns, setPorcentageBtn] = useState([5, 10, 15, 25, 50]);
   const [valueOfEat, setValueOfEat] = useState(0);
-  const [numberOfPeoples, setNumberOfPeoples] = useState(0);
+  const [numberOfPeoples, setNumberOfPeoples] = useState(1);
   const [porcentageSelected, setPorcentageSelected] = useState(0);
   const [tipAmount, setTipAmount] = useState((0).toFixed(2));
   const [tipForPeople, setTipForPeople] = useState((0).toFixed(2));
-  const [porcentageCustom, setPorcentageCustom] = useState("Custom");
+  const [porcentageCustom, setPorcentageCustom] = useState(0);
   const [btnStatus, setBtnstatus] = useState({
     botão1: "btn-inactive",
     disableBtn1: false,
@@ -26,19 +26,13 @@ function App() {
     disableBtn5: false,
     botão6: "btn-inactive",
     disableBtn6: false,
-  }); 
-   if (isNaN(tipAmount)) {
-     setTipAmount(0)
-   } 
-   
-  useEffect(() => {
-    if (valueOfEat > 0 && numberOfPeoples >= 1) {
+  });
 
-        setTipAmount(((valueOfEat * porcentageSelected) / 100).toFixed(2));
-      setTipForPeople((tipAmount / numberOfPeoples).toFixed(2));
-      }
-    
-    })
+  useEffect(() => {
+    setTipAmount(((valueOfEat * porcentageSelected) / 100).toFixed(2));
+    setTipForPeople((tipAmount / numberOfPeoples).toFixed(2));
+  });
+  console.log(tipForPeople,'aki esta');
   return (
     <div className="App">
       <MeuContexto.Provider
@@ -63,7 +57,7 @@ function App() {
                 }}
                 type={"number"}
                 value={valueOfEat}
-                min='0'
+                min="0"
               />
             }
           />
@@ -77,13 +71,14 @@ function App() {
             name="Number of people"
             input={
               <input
+                id="NumberOfPeople"
                 onChange={(f) => {
                   setNumberOfPeoples(f.target.value);
+                  
                 }}
                 type={"number"}
-                min='0'
                 value={numberOfPeoples}
-                id="NumberOfPeople"
+                min="1"
               />
             }
           />
@@ -92,13 +87,14 @@ function App() {
           <ViewResultsTips text="Tip Amount" price={tipForPeople} />
           <ViewResultsTips text="Total" price={tipAmount} />
 
-          <button id="btn-reset"
+          <button
+            id="btn-reset"
             onClick={() => {
               setTipAmount((0).toFixed(2));
               setTipForPeople((0).toFixed(2));
-              setNumberOfPeoples(0);
+              setNumberOfPeoples(1);
               setValueOfEat(0);
-              setPorcentageCustom("Custom");
+              setPorcentageCustom(0);
               btnStatus.botão1 = "btn-inactive";
               btnStatus.botão2 = "btn-inactive";
               btnStatus.botão2 = "btn-inactive";

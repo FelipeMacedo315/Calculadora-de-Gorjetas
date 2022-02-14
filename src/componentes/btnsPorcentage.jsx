@@ -11,7 +11,11 @@ function BtnsPorcentage(props) {
     porcentageCustom,
     setPorcentageCustom,
   } = useContext(MeuContexto);
-   
+
+  useEffect(() => {
+    setPorcentageSelected(porcentageCustom);
+  }, [porcentageCustom]);
+
   return (
     <React.Fragment>
       <button
@@ -123,14 +127,30 @@ function BtnsPorcentage(props) {
         {props.optionsPorcentage[4]}%
       </button>
 
-      <input 
-        placeholder={porcentageCustom}
-        type={"number"}
-        onChange={(e) => {
-          setPorcentageCustom(e.target.value );
-        }}
+      <input
+        type={"text"}
         onClick={() => {
           setPorcentageSelected(porcentageCustom);
+          btnStatus.disableBtn1 = false;
+          btnStatus.disableBtn2 = false;
+          btnStatus.disableBtn3 = false;
+          btnStatus.disableBtn4 = false;
+          btnStatus.disableBtn5 = false;
+
+          btnStatus.botão1 = "btn-inactive";
+          btnStatus.botão2 = "btn-inactive";
+          btnStatus.botão3 = "btn-inactive";
+          btnStatus.botão4 = "btn-inactive";
+          btnStatus.botão5 = "btn-inactive";
+          btnStatus.botão6 = "btn-active";
+        }}
+        onChange={(e) => {
+          if (isNaN(porcentageCustom + e.target.value)) {
+            setPorcentageCustom("");
+          } else {
+            setPorcentageCustom(e.target.value);
+          }
+
           btnStatus.disableBtn1 = false;
           btnStatus.disableBtn2 = false;
           btnStatus.disableBtn3 = false;
