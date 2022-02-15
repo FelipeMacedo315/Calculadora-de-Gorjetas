@@ -11,13 +11,19 @@
  <br/>
  <br/>
 
-<h3><i>Veja:</i></h3> 
- <img src='C:\Users\knjnnnk\gorjetacalc\2022-02-12-20-28-03_Trim-_2_.gif'/>
+<h3><i>Veja:</i></h3>
+
+ <img src='imagensReadme\2022-02-14-13-57-17_Trim.gif'>
  <img src='imagensReadme\gorjetas.png'>
  <img src='imagensReadme\gorjetas2.png'>
  <img src='imagensReadme\gorjetas3.png'>
+ <img src='imagensReadme\gorjetas4.png'>
   
  <h4 align="center"> 
 	🚧  Calculadora de Gorjetas 🚀 Projeto Finalizado...  🚧
 </h4>
-
+  <hr/>
+ <h4 align="center"> 
+	 Mobile....
+</h4>
+ <img align="center" src='imagensReadme\WhatsApp-Video-2022-02-14-at-22.11.48.gif'/>

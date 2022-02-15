@@ -165,6 +165,7 @@ function BtnsPorcentage(props) {
           btnStatus.botão6 = "btn-active";
         }}
         value={porcentageCustom}
+        placeholder="Custom %"
         className={btnStatus.botão6}
       />
     </React.Fragment>
