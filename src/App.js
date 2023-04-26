@@ -32,7 +32,7 @@ function App() {
     setTipAmount(((valueOfEat * porcentageSelected) / 100).toFixed(2));
     setTipForPeople((tipAmount / numberOfPeoples).toFixed(2));
   });
-  console.log(tipForPeople,'aki esta');
+  console.log(tipForPeople, "aki esta");
   return (
     <div className="App">
       <MeuContexto.Provider
@@ -74,7 +74,6 @@ function App() {
                 id="NumberOfPeople"
                 onChange={(f) => {
                   setNumberOfPeoples(f.target.value);
-                  
                 }}
                 type={"number"}
                 value={numberOfPeoples}
